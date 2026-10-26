@@ -1,0 +1,578 @@
+/* ================================================================
+   ControleArduino.css – Estilos do site do aplicativo ControleArduino
+   Baseado na paleta UTFPR (amarelo) e nos anexos fornecidos:
+   cabecalho.css, menu.css, rodape.css, index.css, vscode.css
+   ================================================================ */
+
+/* ===================================================================
+   SEÇÃO 1 — VARIÁVEIS CSS (PALETA UTFPR)
+   =================================================================== */
+:root {
+  /* Paleta UTFPR */
+  --utfpr-Yellow: #ffd200;
+  --utfpr-Yellow-light: #ffe84d;
+  --utfpr-Yellow-dark: #e9b400;
+  --utfpr-Yellow-darker: #c99700;
+
+  /* Escala de cinza */
+  --utfpr-white: #ffffff;
+  --utfpr-gray-light: #f8f9fa;
+  --utfpr-gray: #e9ecef;
+  --utfpr-gray-medium: #dee2e6;
+  --utfpr-gray-dark: #6c757d;
+  --utfpr-black: #212529;
+
+  /* Sombras e transições */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+  --transition-base: 0.3s ease-in-out;
+}
+
+/* ===================================================================
+   SEÇÃO 2 — RESET E CONFIGURAÇÕES BASE
+   =================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background: var(--utfpr-white) !important;
+  color: var(--utfpr-black);
+  line-height: 1.7;
+  padding-bottom: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--utfpr-Yellow-dark);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--utfpr-Yellow-darker);
+  text-decoration: underline;
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid var(--utfpr-Yellow);
+  outline-offset: 2px;
+}
+
+/* ===================================================================
+   SEÇÃO 3 — CONTAINER
+   =================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===================================================================
+   SEÇÃO 4 — CABEÇALHO SUPERIOR (header-top)
+   =================================================================== */
+.header-top {
+  background: linear-gradient(
+    135deg,
+    var(--utfpr-gray-dark) 0%,
+    var(--utfpr-gray-medium) 100%
+  );
+  color: var(--utfpr-black);
+  padding: 20px 0;
+  box-shadow: 0 2px 15px rgba(35, 31, 32, 0.4);
+  border-bottom: 4px solid var(--utfpr-Yellow-dark);
+}
+
+.header-top .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 65px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.institution-name {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--utfpr-black);
+}
+
+.institution-name small {
+  font-size: 0.85rem;
+  opacity: 0.95;
+  font-weight: normal;
+  color: var(--utfpr-black);
+}
+
+.header-title {
+  text-align: right;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--utfpr-black);
+}
+
+.header-title small {
+  font-size: 0.9rem;
+  font-weight: normal;
+  opacity: 0.95;
+  color: var(--utfpr-black);
+}
+
+/* ===================================================================
+   SEÇÃO 5 — RODAPÉ (footer)
+   =================================================================== */
+footer {
+  background: linear-gradient(
+    135deg,
+    var(--utfpr-gray-medium) 0%,
+    var(--utfpr-gray-dark) 100%
+  );
+  color: var(--utfpr-black);
+  padding: 30px 0 15px 0;
+  border-top: 5px solid var(--utfpr-Yellow);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.footer-section h3 {
+  color: var(--utfpr-black);
+  margin-bottom: 6px;
+  font-size: 1.25rem;
+  border-bottom: 2px solid var(--utfpr-Yellow-light);
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.footer-section p,
+.footer-section li {
+  margin-bottom: 4px;
+  line-height: 1.4;
+  opacity: 0.95;
+  color: var(--utfpr-black);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section a {
+  color: var(--utfpr-black);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-section a:hover {
+  opacity: 0.9;
+  border-bottom-color: var(--utfpr-black);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 5px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+  font-size: 0.92rem;
+  color: var(--utfpr-black);
+}
+
+/* ===================================================================
+   SEÇÃO 6 — BOTÃO DE IMPRESSÃO / DOWNLOAD (baseado em vscode.css)
+   =================================================================== */
+.btn-print {
+  background-color: var(--utfpr-Yellow);
+  color: var(--utfpr-black);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 3rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  display: inline-block;
+}
+
+.btn-print:hover {
+  background-color: var(--utfpr-Yellow-light);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+  color: var(--utfpr-black);
+  text-decoration: none;
+}
+
+.btn-print:active {
+  background-color: var(--utfpr-Yellow-dark);
+  transform: scale(0.95);
+}
+
+/* ===================================================================
+   SEÇÃO 7 — CARDS COM EFEITO GLASS (baseado em index.css / vscode.css)
+   =================================================================== */
+.glass-card {
+  background: rgba(104, 113, 120, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.glass-card .card-title {
+  color: var(--utfpr-Yellow-dark);
+  border-bottom: 3px solid var(--utfpr-Yellow);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.glass-card h4 {
+  color: var(--utfpr-Yellow-dark);
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+/* ===================================================================
+   SEÇÃO 8 — CORES DA MARCA (utilitários)
+   =================================================================== */
+.text-utfpr-yellow {
+  color: var(--utfpr-Yellow-dark) !important;
+}
+
+.text-utfpr-yellow-light {
+  color: var(--utfpr-Yellow-light) !important;
+}
+
+.text-utfpr-yellow-darker {
+  color: var(--utfpr-Yellow-darker) !important;
+}
+
+.bg-utfpr-yellow-dark {
+  background-color: var(--utfpr-Yellow-dark) !important;
+  color: var(--utfpr-black) !important;
+}
+
+/* ===================================================================
+   SEÇÃO 9 — CARTA DE ABERTURA (destaque final)
+   =================================================================== */
+.carta-abelha {
+  background: rgba(255, 210, 0, 0.08) !important;
+  border-left: 10px solid var(--utfpr-Yellow) !important;
+  padding: 2rem !important;
+  border-radius: 1.5rem !important;
+}
+
+.carta-abelha p {
+  margin-bottom: 1rem;
+}
+
+.carta-abelha .display-6 {
+  color: var(--utfpr-Yellow-dark);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* ===================================================================
+   SEÇÃO 10 — CAIXA DE DOWNLOAD (personalizada para o APK)
+   =================================================================== */
+.download-box {
+  background: rgba(255, 210, 0, 0.08);
+  border: 2px dashed var(--utfpr-Yellow-dark);
+  border-radius: 1.5rem;
+  padding: 2rem;
+}
+
+.download-box .btn-print {
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+.download-box p {
+  color: var(--utfpr-black);
+}
+
+/* ===================================================================
+   SEÇÃO 11 — ALERTA DE REQUISITOS (estilo UTFPR)
+   =================================================================== */
+.alert-utfpr {
+  background: rgba(255, 210, 0, 0.1);
+  border-left: 6px solid var(--utfpr-Yellow-dark);
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.alert-utfpr h3 {
+  color: var(--utfpr-Yellow-darker);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.alert-utfpr ul {
+  margin-bottom: 0;
+  padding-left: 1.5rem;
+}
+
+.alert-utfpr li {
+  margin-bottom: 0.4rem;
+}
+
+/* ===================================================================
+   SEÇÃO 12 — LISTAS E LINKS DE PROJETOS
+   =================================================================== */
+.project-links {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.project-links li {
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+}
+
+.project-links a {
+  color: var(--utfpr-Yellow-darker);
+  font-weight: 600;
+  border-bottom: 1px solid var(--utfpr-Yellow);
+}
+
+.project-links a:hover {
+  color: var(--utfpr-Yellow-dark);
+  border-bottom-color: var(--utfpr-Yellow-dark);
+}
+
+/* ===================================================================
+   SEÇÃO 13 — ESPAÇAMENTOS UTILITÁRIOS (substituem Bootstrap quando não necessário)
+   =================================================================== */
+.p-4 {
+  padding: 1.5rem !important;
+}
+
+.p-3 {
+  padding: 1rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+/* Layout em duas colunas (funcionalidades) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.col-md-6 {
+  flex: 1 1 45%;
+  min-width: 260px;
+}
+
+/* ===================================================================
+   SEÇÃO 14 — LISTAS PADRÃO DENTRO DE CARDS
+   =================================================================== */
+.glass-card ul,
+.glass-card ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.glass-card ul li,
+.glass-card ol li {
+  margin-bottom: 0.4rem;
+}
+
+/* ===================================================================
+   SEÇÃO 15 — RESPONSIVIDADE
+   =================================================================== */
+@media (max-width: 768px) {
+  .header-top .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .header-title {
+    text-align: center;
+  }
+
+  .glass-card {
+    padding: 1.25rem !important;
+  }
+
+  .carta-abelha {
+    padding: 1.25rem !important;
+  }
+
+  .download-box {
+    padding: 1.25rem !important;
+  }
+
+  .download-box .btn-print {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .col-md-6 {
+    flex: 1 1 100%;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    display: inline-block;
+  }
+
+  .btn-print {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .logo {
+    height: 55px;
+  }
+
+  .download-box .btn-print {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* ===================================================================
+   SEÇÃO 16 — ACESSIBILIDADE (redução de movimento)
+   =================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===================================================================
+   SEÇÃO 17 — ESTILOS PARA IMPRESSÃO
+   =================================================================== */
+@media print {
+  body {
+    background: var(--utfpr-white) !important;
+    color: var(--utfpr-black) !important;
+    font-size: 12pt;
+  }
+
+  .glass-card {
+    background: var(--utfpr-white) !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: 1px solid var(--utfpr-gray) !important;
+    page-break-inside: avoid;
+  }
+
+  .btn-print,
+  .download-box .btn-print {
+    display: none !important;
+  }
+
+  .carta-abelha {
+    border-left-color: var(--utfpr-Yellow-dark) !important;
+    background: var(--utfpr-gray-light) !important;
+  }
+
+  .text-utfpr-yellow {
+    color: var(--utfpr-Yellow-dark) !important;
+  }
+
+  a {
+    color: var(--utfpr-Yellow-dark) !important;
+  }
+
+  .download-box,
+  .alert-utfpr {
+    background: var(--utfpr-gray-light) !important;
+    border-color: var(--utfpr-Yellow-dark) !important;
+  }
+
+  .footer-content {
+    margin-bottom: 5px;
+  }
+}
